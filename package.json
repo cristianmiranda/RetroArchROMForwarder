@@ -1,0 +1,22 @@
+{
+  "name": "RetroArchROMForwarder",
+  "version": "1.0.0",
+  "description": "User friendly ROM Forwarder maker for macOS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristianmiranda/RetroArchROMForwarder.git"
+  },
+  "author": "Cristian Miranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristianmiranda/RetroArchROMForwarder/issues"
+  },
+  "homepage": "https://github.com/cristianmiranda/RetroArchROMForwarder#readme",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}

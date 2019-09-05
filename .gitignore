@@ -1,3 +1,7 @@
-hacbrewpack_backup
-hacbrewpack_nsp
+hacbrewpack_*
 prod.keys
+control/control.nacp
+exefs/main.npdm
+
+package-lock.json
+node_modules
