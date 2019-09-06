@@ -3,6 +3,7 @@ const util = require('util');
 const readline = require('readline');
 const exec = require('child_process').exec;
 const sharp = require('sharp');
+const propertiesReader = require('properties-reader');
 
 const args = require('minimist')(process.argv.slice(2), {
     alias: {
@@ -12,14 +13,28 @@ const args = require('minimist')(process.argv.slice(2), {
         i: 'imagePath',
         k: 'keysPath',
         o: 'outputPath',
+        p: 'properties'
     }
 });
-const titleName = args.t;
-const coreNroPath = args.c;
-const romPath = args.r;
-const imagePath = args.i;
-const keysPath = args.k;
-const outputPath = args.o;
+
+var titleName = args.t;
+var coreNroPath = args.c;
+var romPath = args.r;
+var imagePath = args.i;
+var keysPath = args.k;
+var outputPath = args.o;
+var properties = args.p;
+
+if (properties != undefined) {
+  properties = propertiesReader(properties);
+
+  titleName = properties.get('titleName');
+  coreNroPath = properties.get('coreNroPath');
+  romPath = properties.get('romPath');
+  imagePath = properties.get('imagePath');
+  keysPath = properties.get('keysPath');
+  outputPath = properties.get('outputPath');
+}
 
 var titleId = '05';
 for (var i = 0; i < 10; i++) {

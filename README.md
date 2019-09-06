@@ -1,6 +1,9 @@
+
 # RetroArch ROM Forwarder
 
 Based on [https://github.com/The-4n/hacBrewPack](https://github.com/The-4n/hacBrewPack) with a few perks to make it easier to use and ready for macOS.
+
+![](https://i.imgur.com/d83JA1i.jpg)
 
 ## Installation
 
@@ -17,12 +20,28 @@ Based on [https://github.com/The-4n/hacBrewPack](https://github.com/The-4n/hacBr
 
 ## Usage
 
-	  # -t | --titleName   : Title Name
-	  # -c | --coreNroPath : RetroArch Core NRO path inside SD card (sdmc:)
-	  # -r | --romPath     : RetroArch ROM path inside SD card (sdmc:)
-	  # -i | --imagePath   : Game image path. Must be 256x256
-	  # -k | --keysPath    : Switch keys path. Use Lockpick RCM
-	  # -o | --outputPath  : Generated NSP file path
+	# -t | --titleName   : Title Name
+	# -c | --coreNroPath : RetroArch Core NRO path inside SD card (sdmc:)
+	# -r | --romPath     : RetroArch ROM path inside SD card (sdmc:)
+	# -i | --imagePath   : Game image path. Must be 256x256
+	# -k | --keysPath    : Switch keys path. Use Lockpick RCM
+	# -o | --outputPath  : Generated NSP file path
+  # -p | --properties  : Properties file that sets all above options
+
+Properties file example:
+
+	titleName = 'Mario Bros.'
+	coreNroPath =/retroarch/cores/nestopia_libretro_libnx.nro
+	romPath = '/retroarch/roms/Nintendo - Nintendo Entertainment System/Mario Bros.nes'
+	imagePath = ~/Downloads/bros.jpeg
+	keysPath = ./prod.keys
+	outputPath = ~/Desktop/.
+
+Running the script with properties file:
+
+	node RetroArchROMForwarder.js -p forwarder.properties
+
+Running the script with options:
 
     node RetroArchROMForwarder.js -t 'Pokemon - Emerald Version' -k prod.keys -c '/retroarch/cores/mgba_libretro_libnx.nro' -r '/retroarch/roms/Nintendo - Game Boy Advance/Pokemon - Emerald Version.gba' -o ~/Desktop/. -i ~/Downloads/poke.jpg
 
