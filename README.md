@@ -26,7 +26,7 @@ Based on [https://github.com/The-4n/hacBrewPack](https://github.com/The-4n/hacBr
 	# -i | --imagePath   : Game image path. Must be 256x256
 	# -k | --keysPath    : Switch keys path. Use Lockpick RCM
 	# -o | --outputPath  : Generated NSP file path
-  # -p | --properties  : Properties file that sets all above options
+  	# -p | --properties  : Properties file that sets all above options
 
 Properties file example:
 
