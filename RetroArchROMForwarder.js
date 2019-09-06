@@ -2,6 +2,7 @@ const fs = require('fs');
 const util = require('util');
 const readline = require('readline');
 const exec = require('child_process').exec;
+const sharp = require('sharp');
 
 const args = require('minimist')(process.argv.slice(2), {
     alias: {
@@ -51,12 +52,14 @@ process.stdin.on('keypress', (str, key) => {
     fs.writeFile("./romfs/nextNroPath", nextNroPath, function(err) {
       const nextArgv = util.format('sdmc:%s "sdmc:%s"', coreNroPath, romPath);
       fs.writeFile("./romfs/nextArgv", nextArgv, function(err) {
-        fs.copyFile(imagePath, './control/icon_AmericanEnglish.dat', (err) => {
-          exec(COMMAND, (error, stdout, stderr) => {
-            console.log(stdout);
-            console.log(stderr);
-            process.exit();
-          });
+        sharp(imagePath)
+          .resize(256, 256)
+          .toFile('./control/icon_AmericanEnglish.dat', (err, info) => {
+            exec(COMMAND, (error, stdout, stderr) => {
+              console.log(stdout);
+              console.log(stderr);
+              process.exit();
+            });
         });
       });
     });
